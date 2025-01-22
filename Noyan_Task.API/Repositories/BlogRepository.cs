@@ -27,6 +27,19 @@ namespace Noyan_Task.API.Repositories
             }
         }
 
+        public async Task<bool> BlogPostExists(int ID)
+        {
+            try
+            {
+                return await _context.Blogs.AnyAsync(b => b.ID == ID);
+            }
+            catch
+            {
+                //log exception
+                throw;
+            }
+        }
+
         public async Task<bool> DeleteBlogPost(int ID)
         {
             try

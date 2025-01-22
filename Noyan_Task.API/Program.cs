@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Noyan_Task.API.Context;
+using Noyan_Task.API.Repositories;
+using Noyan_Task.API.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"));
 });
+
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
 var app = builder.Build();
 

@@ -6,6 +6,7 @@ namespace Noyan_Task.API.Repositories.Interfaces
     {
         Task<ICollection<Blog>> GetAllBlogPosts();
         Task<Blog> GetBlogPostWithID(int ID);
+        Task<bool> BlogPostExists(int ID);
         Task<bool> AddNewBlogPost(Blog NewBlog);
         Task<bool> UpdateBlogPost(Blog NewBlog);
         Task<bool> DeleteBlogPost(int ID);
