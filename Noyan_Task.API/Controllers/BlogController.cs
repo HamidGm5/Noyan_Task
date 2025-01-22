@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Noyan_Task.API.Entities;
 using Noyan_Task.API.Repositories.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace Noyan_Task.API.Controllers
 {
@@ -36,6 +37,15 @@ namespace Noyan_Task.API.Controllers
                 return NotFound();
             }
             return Ok(FindBlog);
+        }
+
+
+        [HttpGet("{PageSize:int}/{PageNumber:int}", Name = "GetBlogByPageAndSize")]
+        [ProducesResponseType(200)]
+        public async Task<ActionResult<ICollection<Blog>>> GetBlogByPageAndSize(int PageSize, int PageNumber)
+        {
+            var Blogs = await _BlogRepository.GetBlogPostsWithPageNumber(PageSize, PageNumber);
+            return Ok(Blogs);
         }
 
 

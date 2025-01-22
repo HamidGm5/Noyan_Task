@@ -73,6 +73,23 @@ namespace Noyan_Task.API.Repositories
             }
         }
 
+        public async Task<ICollection<Blog>> GetBlogPostsWithPageNumber(int PageSize, int PageNumber)
+        {
+            try
+            {
+                var Blogs = await _context.Blogs.OrderBy(b => b.ID)
+                                                .Skip(PageSize * (PageNumber - 1))
+                                                .Take(PageSize)
+                                                .ToListAsync();
+                return Blogs;
+            }
+            catch
+            {
+                //log exception
+                throw;
+            }
+        }
+
         public async Task<Blog> GetBlogPostWithID(int ID)
         {
             try

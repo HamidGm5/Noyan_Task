@@ -5,6 +5,7 @@ namespace Noyan_Task.API.Repositories.Interfaces
     public interface IBlogRepository
     {
         Task<ICollection<Blog>> GetAllBlogPosts();
+        Task<ICollection<Blog>> GetBlogPostsWithPageNumber(int PageSize, int PageNumber);
         Task<Blog> GetBlogPostWithID(int ID);
         Task<bool> BlogPostExists(int ID);
         Task<bool> AddNewBlogPost(Blog NewBlog);
