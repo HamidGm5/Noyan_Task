@@ -10,6 +10,6 @@ namespace Noyan_Task.API.Entities
         public string Title { get; set; }
         [Required]
         public string Content { get; set; }
-        public string Author { get; set; }
+        public string? Author { get; set; }
     }
 }
