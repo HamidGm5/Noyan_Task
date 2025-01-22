@@ -10,6 +10,6 @@ namespace Noyan_Task.API.Context
 
         }
 
-        DbSet<Blog> Blogs { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
     }
 }
