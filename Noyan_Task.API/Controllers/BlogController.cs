@@ -63,7 +63,7 @@ namespace Noyan_Task.API.Controllers
             var InsertBlog = await _BlogRepository.AddNewBlogPost(NewBlog);
             if (InsertBlog)
             {
-                return StatusCode(StatusCodes.Status201Created);
+                return CreatedAtAction("AddNewBlogPost", NewBlog);
             }
             return StatusCode(StatusCodes.Status500InternalServerError);
         }
